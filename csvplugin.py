@@ -65,7 +65,7 @@ class CSVMatrix:
         self.valid = False
 
         self.delimiter = self.settings.get('delimiter')
-        if not isinstance(self.delimiter, str) or len(self.delimiter) != 1:
+        if not isinstance(self.delimiter, unicode) or len(self.delimiter) != 1:
             print("'{0}' is not a valid delimiter, reverting to ','.".format(self.delimiter))
             self.delimiter = ','
 
