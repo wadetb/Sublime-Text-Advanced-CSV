@@ -277,6 +277,11 @@ class CSVMatrix:
         for row_index, row in enumerate(self.rows):
             row_text = ''
 
+            # A blank line (including the empty row after the final newline) stays empty.
+            if len(row) == 1 and row[0].text == '':
+                output += '\n' if row_index < len(self.rows) - 1 else ''
+                continue
+
             for column_index, value in enumerate(row):
                 quoted_text = self.QuoteText(value.text)
 
